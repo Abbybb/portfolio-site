@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abigail Bahiru | Portfolio</title>
+  <style>
+    /* COLORS + FONTS */
+    :root {
+      --pink: #f7b7c3;
+      --dark-pink: #e190a4;
+      --brown: #5b3a29;
+      --light-brown: #a37d68;
+      --bg: #fff9f8;
+      --text: #3b2c25;
+      --font: "Poppins", sans-serif;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    /* NAVIGATION BAR */
+    nav {
+      background-color: var(--brown);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    nav h1 {
+      font-size: 1.4rem;
+      margin: 0;
+      color: var(--pink);
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--pink);
+    }
+
+    /* HEADER */
+    header {
+      background-color: var(--pink);
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--brown);
+      border-bottom: 4px solid var(--light-brown);
+    }
+
+    header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-style: italic;
+      font-size: 1.2rem;
+    }
+
+    /* PROFILE PICTURE */
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--dark-pink);
+      display: block;
+      margin: 20px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    /* SECTION STYLES */
+    section {
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    h3 {
+      color: var(--brown);
+      border-left: 6px solid var(--dark-pink);
+      padding-left: 12px;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    /* PROJECT CARDS */
+    .project {
+      background-color: #fff;
+      border: 2px solid var(--pink);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+    }
+
+    .project img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      border: 2px solid var(--pink);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    }
+
+    .tools-used {
+      background-color: var(--light-brown);
+      color: white;
+      display: inline-block;
+      padding: 6px 12px;
+      margin: 4px 4px 0 0;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .skills, .process {
+      display: grid;
+      gap: 20px;
+    }
+
+    .skills {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .skill-box {
+      background-color: var(--light-brown);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .process-step {
+      background-color: var(--pink);
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .process-step:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: var(--brown);
+      color: white;
+      font-size: 1rem;
+      border-top: 4px solid var(--dark-pink);
+    }
+
+    a {
+      color: var(--dark-pink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Fade-in Animation */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MOBILE NAV */
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <h1>Abigail Bahiru</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#skills">Expertise</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h2>Where creativity meets purpose in every interaction</h2>
+    <p>Interactive Designer | UX/UI | Product Design</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" data-animate>
+    <h3>About Me</h3>
+    <img src="images/profilepic.png" alt="Profile picture of Abigail Bahiru" class="profile-pic">
+    <p>Hello! I'm <strong>Abigail Bahiru</strong>, an Ethiopian student studying <strong>Interactive Design</strong> at Kennesaw State University, graduating December 2025. My passion is creating **digital experiences that are both functional and emotionally engaging**.</p>
+    <p>During my time at KSU, I worked on **interactive projects and mobile apps**, including collaborative design projects, usability research, and motion design prototypes. I enjoy combining creativity with technology to solve real-world problems.</p>
+    <p>Outside of design, I enjoy **sketching, photography, exploring UX trends, and learning about cultural storytelling**. My Ethiopian heritage inspires my appreciation for vibrant visuals, storytelling, and user-centered design approaches.</p>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" data-animate>
+    <h3>Portfolio</h3>
+
+    <!-- Food App -->
+    <div class="project" data-animate>
+      <h4>Food App: RecipeShare</h4>
+      <img src="images/food-app.png" alt="RecipeShare App UI">
+      <p>RecipeShare is a social mobile app where users can **share, remix, and discover recipes**. I focused on creating a user-friendly and visually appealing interface that encourages exploration and community engagement.</p>
+      <p><strong>Features & Highlights:</strong></p>
+      <ul>
+        <li>Designed user flows, wireframes, and interactive prototypes in Figma.</li>
+        <li>Developed a warm and inviting visual identity inspired by food photography.</li>
+        <li>Conducted usability testing to improve recipe submission and browsing.</li>
+      </ul>
+      <div>
+        <span class="tools-used">Figma</span>
+        <span class="tools-used">FigJam</span>
+        <span class="tools-used">Illustrator</span>
+      </div>
+    </div>
+
+    <!-- Owl Park App -->
+    <div class="project" data-animate>
+      <h4>Owl Park: Campus Parking App</h4>
+      <img src="images/owlpark.png" alt="Owl Park App UI">
+      <p>Owl Park is an interactive map app for Kennesaw State University, displaying **real-time parking availability** to help students plan campus visits efficiently.</p>
+      <p><strong>Features & Highlights:</strong></p>
+      <ul>
+        <li>Designed motion prototypes with smooth transitions between map and detail screens.</li>
+        <li>Implemented accessibility-focused visual design for all users.</li>
+        <li>Optimized UX hierarchy to reduce student stress and confusion.</li>
+      </ul>
+      <div>
+        <span class="tools-used">Figma</span>
+        <span class="tools-used">After Effects</span>
+        <span class="tools-used">ProtoPie</span>
+      </div>
+    </div>
+
+    <!-- Travel App -->
+    <div class="project" data-animate>
+      <h4>Travel App: Trip Planner</h4>
+      <img src="images/travel-app.png" alt="Travel Planner App UI">
+      <p>The Trip Planner App helps groups **plan, schedule, and coordinate trips**. It emphasizes collaboration, clear navigation, and responsive design for smooth travel planning.</p>
+      <p><strong>Features & Highlights:</strong></p>
+      <ul>
+        <li>Developed personas and journey flows to improve usability.</li>
+        <li>Created interactive prototypes to test group planning features.</li>
+        <li>Focused on accessibility, layout clarity, and visually engaging UI.</li>
+      </ul>
+      <div>
+        <span class="tools-used">Figma</span>
+        <span class="tools-used">Illustrator</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" data-animate>
+    <h3>Expertise</h3>
+    <div class="skills">
+      <div class="skill-box">Figma</div>
+      <div class="skill-box">FigJam</div>
+      <div class="skill-box">Adobe XD</div>
+      <div class="skill-box">Illustrator</div>
+      <div class="skill-box">Rive</div>
+      <div class="skill-box">Photoshop</div>
+      <div class="skill-box">Visual Studio Code</div>
+      <div class="skill-box">After Effects</div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" data-animate>
+    <h3>My Process</h3>
+    <div class="process">
+      <div class="process-step"><strong>Discovery:</strong> Conduct research, inspiration boards, and user interviews to uncover insights.</div>
+      <div class="process-step"><strong>Define:</strong> Map user journeys, define problems, and find opportunities to improve the experience.</div>
+      <div class="process-step"><strong>Design:</strong> Create wireframes, prototypes, and visual designs with accessibility and usability in mind.</div>
+      <div class="process-step"><strong>Test & Iterate:</strong> Gather feedback and perform usability testing to refine solutions.</div>
+      <div class="process-step"><strong>Delivery:</strong> Prepare final assets, documentation, and handoff for development or deployment.</div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" data-animate>
+    <h3>Let's Collaborate</h3>
+    <p>I'm excited to connect with teams, creators, and innovators passionate about **building meaningful digital experiences**.</p>
+    <p>Email: <a href="mailto:abigailbahiru@gmail.com">abigailbahiru@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/feed/" target="_blank">linkedin.com/in/abigailbahiru</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Abigail Bahiru | Designed with 💗 in Georgia
+  </footer>
+
+</body>
+</html>
